@@ -10,8 +10,16 @@ public class Card implements Comparable<Card>{
 	}
 	
 	public Card(int cardId) {
+		if ( cardId == 0 ) {
+			this.suite = Suite.JOKER;
+			this.name = CardName.JOKER;
+			return;
+		}
+		
+		cardId = ( cardId % 53 ) - 1;
+		
 		int suiteId = cardId / 13;
-		int cardRank = cardId % 13;
+		int cardRank = ( cardId % 13 ) + 1;
 		for ( CardName name : CardName.values() ) {
 			if ( name.value() == cardRank ) {
 				this.name = name;
@@ -37,11 +45,7 @@ public class Card implements Comparable<Card>{
 	
 	@Override
 	public String toString() {
-		if ( name == CardName.JOKER ) {
-			return "JJ";
-		}
-		
-		return suite.toString() + name.toString();
+		return name == CardName.JOKER ? name.toString() : suite.toString() + name.toString();
 	}
 	
 	@Override
