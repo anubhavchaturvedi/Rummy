@@ -13,8 +13,8 @@ public class Dealer {
 		}
 	}
 
-	public ArrayList<Card> getHand(int length) {
+	public ArrayList<Card> getHand(int size) {
 		Collections.shuffle(deck);
-		return new ArrayList<Card>(deck.subList(0, length));
+		return new ArrayList<Card>(deck.subList(0, size));
 	}
 }
