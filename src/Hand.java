@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Hand {
 
 	Card card[];
@@ -5,6 +7,7 @@ public class Hand {
 	Hand() {
 		Dealer dealer=new Dealer();
 		card=dealer.getCards(13);
+		Arrays.sort(card);
 	}
 	
 }
