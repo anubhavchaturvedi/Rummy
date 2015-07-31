@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class Dealer {
-	private List<Card> deck;
+	private ArrayList<Card> deck;
 	private final int CARDS_IN_PACK = 53;
 
 	public Dealer(int numberOfPack) {
@@ -14,8 +13,12 @@ public class Dealer {
 		}
 	}
 
-	public List<Card> getHand(int length) {
+	public ArrayList<Card> getHand(int length) {
 		Collections.shuffle(deck);
-		return deck.subList(0, length);
+		ArrayList<Card> hand = new ArrayList<Card>();
+		for (int i = 0; i < length; i++) {
+			hand.add(deck.get(i));
+		}
+		return hand;
 	}
 }
