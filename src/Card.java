@@ -4,6 +4,29 @@ public class Card implements Comparable<Card>{
 	CardName name;
 	Suite suite;
 	
+	public Card(CardName cardname, Suite suite){
+		this.name = cardname;
+		this.suite = suite;
+	}
+	
+	public Card(int cardId) {
+		int suiteId = cardId / 13;
+		int cardRank = cardId % 13;
+		for ( CardName name : CardName.values() ) {
+			if ( name.value() == cardRank ) {
+				this.name = name;
+				break;
+			}
+		}
+		
+		for ( Suite suite : Suite.values() ) {
+			if ( suite.value() == suiteId ) {
+				this.suite = suite;
+				break;
+			}
+		}
+	}
+	
 	@Override
 	public String toString() {
 		if ( name == CardName.JOKER ) {
