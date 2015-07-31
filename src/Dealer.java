@@ -15,10 +15,6 @@ public class Dealer {
 
 	public ArrayList<Card> getHand(int length) {
 		Collections.shuffle(deck);
-		ArrayList<Card> hand = new ArrayList<Card>();
-		for (int i = 0; i < length; i++) {
-			hand.add(deck.get(i));
-		}
-		return hand;
+		return new ArrayList<Card>(deck.subList(0, length));
 	}
 }
