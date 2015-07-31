@@ -1,12 +1,10 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class Hand {
 
 	ArrayList<Card> card;
-	Comparator<Card> compareByRank;
 
 	ArrayList<Card[]> finalSequences;
 
@@ -21,15 +19,7 @@ public class Hand {
 		}
 
 		Collections.sort(card);
-		compareByRank = new Comparator<Card>() {
-
-			@Override
-			public int compare(Card c1, Card c2) {
-				// TODO Auto-generated method stub
-				return c1.getRank() - c2.getRank();
-			}
-		};
-		Collections.sort(card, compareByRank);
+		Collections.sort(card, Card.sortUsingRank);
 		finalSequences = new ArrayList<Card[]>();
 	}
 
