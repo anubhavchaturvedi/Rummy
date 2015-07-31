@@ -9,7 +9,7 @@ public class Dealer {
 		int totalCards = CARDS_IN_PACK * numberOfPack;
 		deck = new ArrayList<Card>();
 		for (int i = 0; i < totalCards; i++) {
-			deck.add(new Card());
+			deck.add(new Card(i % CARDS_IN_PACK));
 		}
 	}
 
