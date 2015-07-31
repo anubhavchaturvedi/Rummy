@@ -57,4 +57,9 @@ public class Card implements Comparable<Card>{
 	public int compareTo(Card card) {
 		return this.cardId() - card.cardId();
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return obj instanceof Card && ( ((Card)obj).cardId() == this.cardId() );
+	}
 }
