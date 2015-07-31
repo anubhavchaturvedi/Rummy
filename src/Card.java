@@ -1,8 +1,8 @@
 
 public class Card implements Comparable<Card>{
 
-	CardName name;
-	Suite suite;
+	private CardName name;
+	private Suite suite;
 	
 	public Card(CardName cardname, Suite suite){
 		this.name = cardname;
@@ -33,6 +33,37 @@ public class Card implements Comparable<Card>{
 				break;
 			}
 		}
+	}
+	
+	public static Card cardFromString(String representation) {
+		String suite = representation.substring(0, 1);
+		String name = representation.substring(1,2);
+		
+		if ( suite == "J" )
+			return new Card(0);
+		
+		Suite enum_suite = Suite.JOKER;
+		CardName enum_name = CardName.JOKER;
+		for ( Suite s : Suite.values() ){
+			if(s.toString().equals(suite))
+				enum_suite = s;
+		}
+		
+		for ( CardName c : CardName.values() ){
+			if( c.toString().equals(name) ){
+				enum_name = c;
+			}
+		}
+		
+		return new Card(enum_name, enum_suite);
+	}
+	
+	public Suite suite(){
+		return this.suite;
+	}
+	
+	public CardName name(){
+		return this.name;
 	}
 	
 	public int cardId(){
