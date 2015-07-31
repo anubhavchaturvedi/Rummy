@@ -28,6 +28,14 @@ public class Card implements Comparable<Card>{
 		}
 	}
 	
+	public int cardId(){
+		if ( name == CardName.JOKER ) {
+			return 0;
+		}
+		
+		return ( suite.value() * 13 ) + name.value();
+	}
+	
 	@Override
 	public String toString() {
 		if ( name == CardName.JOKER ) {
@@ -39,11 +47,7 @@ public class Card implements Comparable<Card>{
 	
 	@Override
 	public int hashCode() {
-		if ( name == CardName.JOKER ) {
-			return 0;
-		}
-		
-		return ( suite.value() * 13 ) + name.value();
+		return cardId();
 	}
 	
 	@Override
