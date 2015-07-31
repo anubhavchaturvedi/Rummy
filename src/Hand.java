@@ -7,9 +7,21 @@ public class Hand {
 	ArrayList<Integer> differenceInCards;
 	
 	Hand() {
-		//Dealer dealer=new Dealer(3);
-		//card=dealer.getHand(13);
-		card = new ArrayList<Card>();
+		Dealer dealer=new Dealer(3);
+		card=dealer.getHand(13);
+		for(int i=0;i<card.size();i++)
+		{
+			System.out.println(card.get(i));
+		}
+		System.out.println("----");
+		Arrays.sort(card.toArray());
+		for(int i=0;i<card.size();i++)
+		{
+			System.out.println(card.get(i));
+		}
+		differenceInCards=new ArrayList<Integer>();
+
+		/*card = new ArrayList<Card>();
 		card.add(new Card(5));
 		card.add(new Card(23));
 		card.add(new Card(7));
@@ -20,7 +32,7 @@ public class Hand {
 		Arrays.sort(tmp);
 		System.out.println(Arrays.deepToString(tmp));
 		
-		differenceInCards=new ArrayList<Integer>();
+		*/
 	}
 	
 	void subtract() {
