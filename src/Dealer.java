@@ -6,10 +6,10 @@ public class Dealer {
 	private final int CARDS_IN_PACK = 53;
 
 	public Dealer(int numberOfPack) {
-		int totalCards = CARDS_IN_PACK * numberOfPack;
-		deck = new ArrayList<Card>();
-		for (int i = 0; i < totalCards; i++) {
-			deck.add(new Card(i % CARDS_IN_PACK));
+		deck = new ArrayList<Card>(CARDS_IN_PACK * numberOfPack);
+		for (int i = 0; i < numberOfPack; i++) {
+			for ( int j = 0; j < CARDS_IN_PACK; j++ )
+				deck.add(new Card(j));
 		}
 	}
 
