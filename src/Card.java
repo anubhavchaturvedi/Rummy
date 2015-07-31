@@ -52,6 +52,6 @@ public class Card implements Comparable<Card>{
 	
 	@Override
 	public int compareTo(Card card) {
-		return this.hashCode() - card.hashCode();
+		return this.cardId() - card.cardId();
 	}
 }
