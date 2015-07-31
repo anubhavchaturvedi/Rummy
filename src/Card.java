@@ -89,6 +89,10 @@ public class Card implements Comparable<Card>{
 		return this.cardId() - card.cardId();
 	}
 	
+	public int getRank() {
+		return this.name.value();
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		return obj instanceof Card && ( ((Card)obj).cardId() == this.cardId() );
