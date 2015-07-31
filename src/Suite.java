@@ -1,5 +1,6 @@
 
 public enum Suite {
+	JOKER (-1),
 	SPADE (0),
 	CLUB (1), 
 	HEART (2), 
@@ -22,6 +23,7 @@ public enum Suite {
 		case CLUB : return "C";
 		case HEART : return "H";
 		case DIAMOND : return "D";
+		case JOKER : return "";
 		default : return "";
 		}
 	}
